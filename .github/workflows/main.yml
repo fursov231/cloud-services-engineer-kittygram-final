@@ -76,7 +76,7 @@ jobs:
           SECRET_LIST=$(cat secret-list.txt)
       - name: Create env file
         run: |
-          for secret in $SECRET_LIST; 
+          for secret in $SECRET_LIST
           do
             echo "$secret=${{ secrets.$secret }}" >> .env
           done
