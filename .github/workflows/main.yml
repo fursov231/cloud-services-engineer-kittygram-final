@@ -119,7 +119,7 @@ jobs:
         with:
           secrets: ${{ toJSON(secrets) }}
           exclude: SSH_KEY
-      - name: Copy docker-compose.yml via ssh
+      - name: Copy docker-compose.yml and .env via ssh
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
