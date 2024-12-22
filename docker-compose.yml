@@ -8,12 +8,15 @@ volumes:
 
 services:
   postgres:
+    container_name: postgres
     image: postgres:13.7-alpine
     ports:
       - "5432:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
+    env_file: .env
   backend:
+    container_name: backend
     image: fursov231/kitty-backend
     build: ./backend/
     ports:
@@ -21,9 +24,11 @@ services:
     volumes:
       - static:/backend_static/collected_static
       - media:/media_static
+    env_file: .env
     depends_on:
       - postgres
   gateway:
+    container_name: gateway
     image: fursov231/kitty-nginx
     build: ./nginx/
     ports:
@@ -33,7 +38,9 @@ services:
       - media:/media_static
     depends_on:
       - backend
+    env_file: .env
   frontend:
+    container_name: frontend
     image: fursov231/kitty-frontend
     build: ./frontend/
     volumes:
@@ -41,3 +48,4 @@ services:
       - frontend:/app/static
     depends_on:
       - backend
+    env_file: .env
