@@ -1,0 +1,43 @@
+version: '3'
+
+volumes:
+  pg_data:
+  static:
+  media:
+  frontend:
+
+services:
+  postgres:
+    image: postgres:13.7-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  backend:
+    image: fursov231/kitty-backend
+    build: ./backend/
+    ports:
+      - "8000:8000"
+    volumes:
+      - static:/backend_static/collected_static
+      - media:/media_static
+    depends_on:
+      - postgres
+  gateway:
+    image: fursov231/kitty-nginx
+    build: ./nginx/
+    ports:
+      - "80:80"
+    volumes:
+      - static:/backend_static/collected_static
+      - media:/media_static
+    depends_on:
+      - backend
+  frontend:
+    image: fursov231/kitty-frontend
+    build: ./frontend/
+    volumes:
+      - static:/backend_static/collected_static
+      - frontend:/app/static
+    depends_on:
+      - backend
