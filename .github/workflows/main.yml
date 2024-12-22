@@ -142,6 +142,7 @@ jobs:
             sudo docker compose --env-file .env up -d
             sudo docker compose exec backend python manage.py migrate
             sudo docker compose exec backend python manage.py collectstatic
+            sudo docker compose exec backend cp -r /app/collected_static/. /backend_static/static/
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
