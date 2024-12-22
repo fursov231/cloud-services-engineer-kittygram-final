@@ -114,8 +114,12 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      - name: Create env file
-        run: echo "${{ secrets.ENV_FILE }}" > .env
+      - name: Export secrets
+        uses: 0ndt/envfile@v2
+        with:
+          secrets: ${{ toJSON(secrets) }}
+      - name: Check env
+        run: printenv
       - name: Copy docker-compose.yml via ssh
         uses: appleboy/scp-action@master
         with:
