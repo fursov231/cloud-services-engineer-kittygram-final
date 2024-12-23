@@ -2,9 +2,9 @@ version: '3'
 
 volumes:
   pg_data:
-  static:
+  backend_static:
   media:
-  frontend:
+  frontend_static:
 
 services:
   postgres:
@@ -22,8 +22,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - static:/backend_static/collected_static
-      - media:/media_static
+      - backend_static:/backend_static
+      - media:/app/cats/images
     env_file: .env
     depends_on:
       - postgres
@@ -34,8 +34,9 @@ services:
     ports:
       - "80:80"
     volumes:
-      - static:/backend_static/collected_static
-      - media:/media_static
+      - backend_static:/backend_static
+      - media:/app/cats/images
+      - frontend_static:/frontend_static
     depends_on:
       - backend
     env_file: .env
@@ -46,8 +47,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - static:/backend_static/collected_static
-      - frontend:/app/static
+      - frontend_static:/frontend_static
     depends_on:
       - backend
     env_file: .env
