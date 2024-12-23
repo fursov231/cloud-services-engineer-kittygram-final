@@ -23,7 +23,7 @@ services:
       - "8000:8000"
     volumes:
       - backend_static:/backend_static
-      - media:/app/media_static/cats/images
+      - media:/app/media/cats/images
     env_file: .env
     depends_on:
       - postgres
@@ -35,7 +35,7 @@ services:
       - "80:80"
     volumes:
       - backend_static:/backend_static
-      - media:/app/media_static/cats/images
+      - media:/app/media/cats/images
       - frontend_static:/frontend_static
     depends_on:
       - backend
