@@ -1,15 +1,16 @@
 import os
+from email.policy import default
 from pathlib import Path
 
 from django.core.management.utils import get_random_secret_key
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv(os.getenv('SECRET_KEY'), default=get_random_secret_key())
+SECRET_KEY = os.getenv(os.getenv('SECRET_KEY'), default=str(get_random_secret_key()))
 
 DEBUG = os.getenv('DEBUG', default=False)
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', ['*'])
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default=['*'])
 
 INSTALLED_APPS = [
     'django.contrib.admin',
