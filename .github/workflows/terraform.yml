@@ -1,0 +1,12 @@
+name: Terraform
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Select the Terraform action'
+        required: true
+        default: 'plan'
+        options:
+          - plan
+          - apply
+          - destroy
