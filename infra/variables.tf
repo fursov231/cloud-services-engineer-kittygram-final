@@ -63,12 +63,12 @@ variable "disk_size" {
 
 variable "cores" {
   type = string
-  default = "2"
+  default = "1"
 }
 
 variable "memory" {
   type = string
-  default = "2"
+  default = "1"
 }
 
 variable "core_fraction" {
