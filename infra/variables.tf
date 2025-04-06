@@ -24,11 +24,6 @@ variable "vm_1_name" {
   default = "vm-kittygram"
 }
 
-variable "aws_region" {
-  description = "AWS Region name"
-  type = string
-}
-
 variable "ssh_key" {
   description = "SSH Public Key"
   type = string
@@ -43,3 +38,49 @@ variable "folder_id" {
   description = "Folder ID"
   type = string
 }
+
+variable "platform_id" {
+  type = string
+  default = "standard-v1"
+}
+
+variable "zone" {
+  type = string
+  default = "ru-central1-a"
+}
+
+variable "disk_type" {
+  type = string
+  default = "network-hddd"
+}
+
+variable "disk_size" {
+  type = string
+  default = "10G"
+}
+
+variable "cores" {
+  type = string
+  default = "2"
+}
+
+variable "memory" {
+  type = string
+  default = "2"
+}
+
+variable "core_fraction" {
+  type = string
+  default = "20"
+}
+
+variable "nat" {
+  type = bool
+  default = true
+}
+
+variable "image_family" {
+  type = string
+  default = "ubuntu-1804-lts"
+}
+

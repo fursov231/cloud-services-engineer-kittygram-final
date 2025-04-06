@@ -10,7 +10,7 @@ terraform {
     endpoints = {
       s3 = "https://storage.yandexcloud.net"
     }
-    bucket = "<Укажите здесь свой бакет, предварительно созданный в облаке>"
+    bucket = "common-bucket"
     region = "ru-central1"
     key    = "tf-state.tfstate"
 
@@ -25,5 +25,5 @@ provider "yandex" {
   service_account_key_file = "authorized_key.json"
   cloud_id  = var.cloud_id
   folder_id = var.folder_id
-  zone      = "ru-central1-a"
+  zone      = var.zone
 }
