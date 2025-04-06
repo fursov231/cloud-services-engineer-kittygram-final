@@ -83,6 +83,6 @@ variable "nat" {
 
 variable "image_family" {
   type = string
-  default = "ubuntu-1804-lts"
+  default = "ubuntu-2404-lts-oslogin"
 }
 
