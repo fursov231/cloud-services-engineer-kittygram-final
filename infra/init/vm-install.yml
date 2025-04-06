@@ -4,7 +4,7 @@ users:
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
     ssh-authorized-keys:
-      - "${SSH_KEY}"
+      - ${SSH_KEY}
 
 write_files:
   - content: |

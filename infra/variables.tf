@@ -58,7 +58,7 @@ variable "disk_type" {
 
 variable "disk_size" {
   type = number
-  default = 10
+  default = 20
 }
 
 variable "cores" {
@@ -68,12 +68,12 @@ variable "cores" {
 
 variable "memory" {
   type = string
-  default = "2"
+  default = "4"
 }
 
 variable "core_fraction" {
   type = string
-  default = "5"
+  default = "20"
 }
 
 variable "nat" {
