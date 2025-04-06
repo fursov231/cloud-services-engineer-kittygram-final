@@ -41,22 +41,13 @@ jobs:
         run: terraform plan -var="ssh_key=$PUBLIC_SSH_KEY"
         env:
           PUBLIC_SSH_KEY: ${{ secrets.PUBLIC_SSH_KEY }}
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
       - name: Terraform Apply
         working-directory: ./infra
         if: ${{ github.event.inputs.action == 'apply' }}
-        run: terraform apply
-        env:
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        run: terraform apply -var="ssh_key=$PUBLIC_SSH_KEY"
 
-      # Уничтожение инфраструктуры
       - name: Terraform Destroy
         working-directory: ./infra
         if: ${{ github.event.inputs.action == 'destroy' }}
         run: terraform destroy
-        env:
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
