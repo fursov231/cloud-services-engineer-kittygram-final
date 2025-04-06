@@ -1,0 +1,19 @@
+users:
+  - name: admin
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh-authorized-keys:
+      - "${SSH_KEY}"
+
+write_files:
+  - content: |
+      #!/bin/bash
+      apt update
+      apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    path: "/root/vm_prep.sh"
+    permissions: "0740"
+
+runcmd:
+  - sleep 120
+  - sudo -i
+  - /root/vm_prep.sh
