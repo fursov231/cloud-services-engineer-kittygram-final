@@ -36,7 +36,7 @@ jobs:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
       - name: Terraform Plan
-        working-directory: ./infra
+        working-directory: ./infra -var="ssh_key=${{ secrets.SSH_KEY }}"
         if: ${{ github.event.inputs.action == 'plan' }}
         run: terraform plan
         env:
