@@ -68,17 +68,17 @@ variable "cores" {
 
 variable "memory" {
   type = string
-  default = "4"
+  default = "2"
 }
 
 variable "core_fraction" {
   type = string
-  default = "100"
+  default = "20"
 }
 
 variable "nat" {
   type = bool
-  default = false
+  default = true
 }
 
 variable "image_family" {
