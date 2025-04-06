@@ -48,7 +48,7 @@ variable "platform_id" {
 
 variable "zone" {
   type = string
-  default = "ru-central1-a"
+  default = "ru-central-c"
 }
 
 variable "disk_type" {
