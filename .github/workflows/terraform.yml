@@ -50,4 +50,4 @@ jobs:
       - name: Terraform Destroy
         working-directory: ./infra
         if: ${{ github.event.inputs.action == 'destroy' }}
-        run: terraform destroy -auto-approve
+        run: terraform destroy -var="ssh_key=$PUBLIC_SSH_KEY" -auto-approve
