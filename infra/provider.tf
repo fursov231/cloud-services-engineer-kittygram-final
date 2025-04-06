@@ -13,7 +13,6 @@ terraform {
     bucket = "common-bucket"
     region = "ru-central1"
     key    = "tf-state.tfstate"
-    encrypt = true
 
     skip_region_validation      = true
     skip_credentials_validation = true
@@ -23,7 +22,7 @@ terraform {
 }
 
 provider "yandex" {
-  service_account_key_file = "authorized_key.json"
+  service_account_key_file = "./authorized_key.json"
   cloud_id  = var.cloud_id
   folder_id = var.folder_id
   zone      = var.zone
