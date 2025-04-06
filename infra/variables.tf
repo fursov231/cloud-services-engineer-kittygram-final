@@ -21,7 +21,7 @@ variable "net_cidr" {
 
 variable "vm_1_name" {
   type = string
-  default = "vm-kittygram"
+  default = "vm-for-kittygram"
 }
 
 variable "ssh_key" {
@@ -48,12 +48,12 @@ variable "platform_id" {
 
 variable "zone" {
   type = string
-  default = "ru-central-c"
+  default = "ru-central1-a"
 }
 
 variable "disk_type" {
   type = string
-  default = "network-hddd"
+  default = "network-hdd"
 }
 
 variable "disk_size" {
