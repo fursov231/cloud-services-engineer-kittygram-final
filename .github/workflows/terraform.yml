@@ -45,9 +45,9 @@ jobs:
       - name: Terraform Apply
         working-directory: ./infra
         if: ${{ github.event.inputs.action == 'apply' }}
-        run: terraform apply -var="ssh_key=$PUBLIC_SSH_KEY"
+        run: terraform apply -var="ssh_key=$PUBLIC_SSH_KEY" -auto-approve
 
       - name: Terraform Destroy
         working-directory: ./infra
         if: ${{ github.event.inputs.action == 'destroy' }}
-        run: terraform destroy
+        run: terraform destroy -auto-approve
