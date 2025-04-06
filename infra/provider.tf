@@ -13,6 +13,9 @@ terraform {
     bucket = "common-bucket"
     region = "ru-central1"
     key    = "tf-state.tfstate"
+    encrypt = true
+
+    profile = "rk109_profile"
 
     skip_region_validation      = true
     skip_credentials_validation = true
