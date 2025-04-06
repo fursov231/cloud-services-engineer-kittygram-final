@@ -73,7 +73,7 @@ variable "memory" {
 
 variable "core_fraction" {
   type = string
-  default = "20"
+  default = "5"
 }
 
 variable "nat" {
