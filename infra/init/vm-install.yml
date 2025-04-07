@@ -1,17 +1,11 @@
 #cloud-config
-datasource:
-  Ec2:
-    strict_id: false
-  my-data:
-    SSH_KEY: ${SSH_KEY}
-ssh_pwauth: yes
+ssh_pwauth: no
 users:
-  - name: admin
+  - name: user
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
     ssh-authorized-keys:
     - "${SSH_KEY}"
-
 write_files:
   - content: |
       #!/bin/bash
